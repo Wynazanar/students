@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,15 @@
     <link rel="stylesheet" href="src/style/reset.css">
     <link rel="stylesheet" href="src/style/global.css">
 </head>
+
 <body>
     <div class="container">
         <div class="form">
             <div class="form-header">
                 <h2>Редактирование урока</h2>
                 <svg width="19px" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </div>
             <p class="form-description">Вы можете создавать новые занятия, а также редактировать существующие</p>
@@ -21,52 +24,24 @@
                 <label for="date">Дата занятия</label>
                 <input type="date" onchange="{console.log(this.value)}" id="date">
                 <br>
-                <label for="subject">Предмет</label>
-                <select onchange="{console.log(this.value)}" id="subject">
-                    <option value="-" selected disabled>Выберите предмет</option>
-                    <option value="123">123</option>
-                    <option value="234">234</option>
-                    <option value="456">456</option>
-                    <option value="678">678</option>
-                </select>
+                <select class="form-section-select" id="subject"></select>
             </div>
-            <div>
-                <label for="group">Группа</label>
-                <select onchange="{console.log(this.value)}" id="group">
-                    <option value="-" selected disabled>Выберите группу</option>
-                    <option value="123">123</option>
-                    <option value="234">234</option>
-                    <option value="456">456</option>
-                    <option value="678">678</option>
-                </select>
+            <div class="form-section">
+                <h3>Успеваемость учащихся</h3>
+                <select class="form-section-select" id="group"></select>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Учащиеся</th>
+                            <th>Оценивание</th>
+                        </tr>
+                    </thead>
+                    <tbody id="st_tbody"></tbody>
+                </table>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2">Учащиеся</th>
-                        <th>Оценивание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Фамилия Первого</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Фамилия Второго</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Фамилия Третьего</td>
-                        <td><input type="text"></td>
-                    </tr>
-                </tbody>
-            </table>
             <button class="button primary">Создать/Сохранить</button>
         </div>
     </div>
 </body>
+<script src="src/scripts/data.js"></script>
 </html>
