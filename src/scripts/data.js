@@ -5,13 +5,37 @@ const groups = [
 ];
 
 const students = [
-    {id: 1, group_id: 1, student: "Иванов Иван"},
-    {id: 2, group_id: 1, student: "Максимов Максим"},
-    {id: 3, group_id: 1, student: "Андреев Андрей"},
-    {id: 4, group_id: 2, student: "Миронова Мария"},
-    {id: 5, group_id: 2, student: "Алексеев Алексей"},
-    {id: 6, group_id: 3, student: "Никитин Никита"},
-];
+    {"id": 1, "group_id": 1, "student": "Иванов Иван"},
+    {"id": 2, "group_id": 1, "student": "Максимов Максим"},
+    {"id": 3, "group_id": 1, "student": "Андреев Андрей"},
+    {"id": 4, "group_id": 2, "student": "Миронова Мария"},
+    {"id": 5, "group_id": 2, "student": "Алексеев Алексей"},
+    {"id": 6, "group_id": 3, "student": "Никитин Никита"},
+    {"id": 7, "group_id": 3, "student": "Иванов Иван"},
+    {"id": 8, "group_id": 3, "student": "Петров Петр"},
+    {"id": 9, "group_id": 3, "student": "Сидоров Сидор"},
+    {"id": 10, "group_id": 3, "student": "Семенов Семен"},
+    {"id": 11, "group_id": 3, "student": "Васильев Василий"},
+    {"id": 12, "group_id": 3, "student": "Александров Александр"},
+    {"id": 13, "group_id": 3, "student": "Николаев Николай"},
+    {"id": 14, "group_id": 3, "student": "Павлов Павел"},
+    {"id": 15, "group_id": 3, "student": "Сергеев Сергей"},
+    {"id": 16, "group_id": 3, "student": "Андреев Андрей"},
+    {"id": 17, "group_id": 3, "student": "Дмитриев Дмитрий"},
+    {"id": 18, "group_id": 3, "student": "Егоров Егор"},
+    {"id": 19, "group_id": 3, "student": "Борисов Борис"},
+    {"id": 20, "group_id": 3, "student": "Волков Волк"},
+    {"id": 21, "group_id": 3, "student": "Зайцев Зайц"},
+    {"id": 22, "group_id": 3, "student": "Козлов Козел"},
+    {"id": 23, "group_id": 3, "student": "Левин Лев"},
+    {"id": 24, "group_id": 3, "student": "Константинов Константин"},
+    {"id": 25, "group_id": 3, "student": "Орлов Орлов"},
+    {"id": 26, "group_id": 3, "student": "Романов Роман"},
+    {"id": 27, "group_id": 3, "student": "Королев Королев"},
+    {"id": 28, "group_id": 3, "student": "Носов Нос"},
+    {"id": 29, "group_id": 3, "student": "Горбачев Горбач"},
+    {"id": 30, "group_id": 3, "student": "Чернышов Черныш"},
+]; 
 
 const subjects = [
     {id: 1, subject: "ТРПО", teacher_id: 1},
@@ -102,3 +126,36 @@ group_select.addEventListener("change", () => {
         index++;
     }
 });
+
+function openLessonSettings(lesson, group) {
+    return `<div class="form" id="lessonSettings">
+            <div class="form-header">
+                <h2>Редактирование урока</h2>
+                <svg width="19px" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <p class="form-description">Вы можете создавать новые занятия, а также редактировать существующие</p>
+            <div class="form-section">
+                <label for="date">Дата занятия</label>
+                <input type="date" onchange="{console.log(this.value)}" id="date">
+                <br>
+                <select class="form-section-select" id="subject"></select>
+            </div>
+            <div class="form-section">
+                <h3>Успеваемость учащихся</h3>
+                <select class="form-section-select" id="group"></select>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Учащиеся</th>
+                            <th>Оценивание</th>
+                        </tr>
+                    </thead>
+                    <tbody id="st_tbody"></tbody>
+                </table>
+            </div>
+            <button class="button primary" onclick="saveThemeSubject()">Создать/Сохранить</button>
+        </div>`;
+}

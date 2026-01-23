@@ -130,3 +130,74 @@ table {
 .form table th {
     font-weight: 600;
 }
+
+
+
+
+
+
+
+
+
+
+.section {
+    width: 100%;
+    background: var(--table-background);
+    border-radius: var(--border-radius);
+    border: 1px solid #e0e0e0;
+    padding: 14px 20px;
+}
+
+.section.double {
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+}
+
+.section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.groups-list, .journal-list {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    gap: 10px 5px;
+    max-height: 180px;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    padding-right: 10px;
+}
+
+.groups-list button {
+    font-size: 14px;
+    height: 60px;
+    background: var(--table-background);
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    transition: all 0.2s ease-in-out;
+}
+
+.groups-list button:hover {
+    font-weight: 600;
+    color: var(--color);
+    background: var(--primary);
+}
+
+.journal-list {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+}
+
+.journal-list button {
+    font-size: 14px;
+    padding: 10px 20px;
+    background: var(--table-background);
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    transition: all 0.2s ease-in-out;
+    text-align: left;
+}

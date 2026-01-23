@@ -11,35 +11,54 @@
 
 <body>
     <div class="container">
-        <div class="form">
-            <div class="form-header">
-                <h2>Редактирование урока</h2>
-                <svg width="19px" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
+        <h1>Рабочий стол</h1>
+        <div class="section double">
+            <div>
+                <h2>Мои классы</h2>
+                <div class="groups-list">
+                    <button>9ИС-430</button>
+                    <button>11КС-240</button>
+                    <button>9КС-155</button>
+                    <button>9ИС-430</button>
+                    <button>11КС-240</button>
+                    <button>9КС-155</button>
+                    <button>9ИС-430</button>
+                    <button>11КС-240</button>
+                    <button>9КС-155</button>
+                    <button>9ИС-430</button>
+                    <button>11КС-240</button>
+                    <button>9КС-155</button>
+                    <button>9ИС-430</button>
+                    <button>11КС-240</button>
+                    <button>9КС-155</button>
+                    <button>9ИС-430</button>
+                    <button>11КС-240</button>
+                    <button>9КС-155</button>
+                </div>
             </div>
-            <p class="form-description">Вы можете создавать новые занятия, а также редактировать существующие</p>
-            <div class="form-section">
-                <label for="date">Дата занятия</label>
-                <input type="date" onchange="{console.log(this.value)}" id="date">
-                <br>
-                <select class="form-section-select" id="subject"></select>
+            <div style="width: 100%;">
+                <h2>Журналы</h2>
+                <div class="journal-list">
+                    <button>🕮 ТРПО 9ИС-530</button>
+                    <button>🕮 ТРПО 11КС-240</button>
+                    <button>🕮 ТРПО 9КС-155</button>
+                    <button>🕮 ТРПО 9ИС-430</button>
+                    <button>🕮 ТРПО 11КС-240</button>
+                    <button>🕮 ТРПО 9КС-155</button>
+                    <button>🕮 СУБД 9ИС-430</button>
+                    <button>🕮 СУБД 11КС-240</button>
+                    <button>🕮 СУБД 9КС-155</button>
+                    <button>🕮 КС 9ИС-430</button>
+                    <button>🕮 КС 11КС-240</button>
+                    <button>🕮 КС 9КС-155</button>
+                    <button>🕮 АД БД9ИС-430</button>
+                    <button>🕮 АД БД11КС-240</button>
+                    <button>🕮 ТРПО 9КС-155</button>
+                    <button>🕮 КС 9ИС-430</button>
+                    <button>🕮 ИСРПО 11КС-240</button>
+                    <button>🕮 ИСРПО 9КС-155</button>
+                </div>
             </div>
-            <div class="form-section">
-                <h3>Успеваемость учащихся</h3>
-                <select class="form-section-select" id="group"></select>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Учащиеся</th>
-                            <th>Оценивание</th>
-                        </tr>
-                    </thead>
-                    <tbody id="st_tbody"></tbody>
-                </table>
-            </div>
-            <button class="button primary">Создать/Сохранить</button>
         </div>
     </div>
 </body>
