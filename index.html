@@ -14,16 +14,16 @@
         <h1>Рабочий стол</h1>
         <div class="section double">
             <div>
-                <div style="margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
+                <div class="column">
                     <h2>Классы</h2>
-                    <input style="text-align: right;" type="text" oninput="{setGroupsList(`${value}`)}" placeholder="Поиск">
+                    <input type="text" oninput="{setGroupsList(`${value}`)}" placeholder="Поиск">
                 </div>
                 <div class="groups-list" id="groups-list"></div>
             </div>
             <div style="width: 100%;">
-                <div style="margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
+                <div class="column">
                     <h2>Журналы</h2>
-                    <input style="text-align: right;" type="text" oninput="{setJournalsList(`${value}`)}" placeholder="Поиск">
+                    <input type="text" oninput="{setJournalsList(`${value}`)}" placeholder="Поиск">
                 </div>
                 <div class="journal-list" id="journal-list"></div>
             </div>

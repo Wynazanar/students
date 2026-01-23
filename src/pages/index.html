@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Система учета успеваемости студентов</title>
-    <link rel="stylesheet" href="src/style/reset.css">
-    <link rel="stylesheet" href="src/style/global.css">
+    <title>Журнал успеваемости</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/global.css">
 </head>
 <body>
     <div class="container">
+        <select>
+            <option value="-" disabled selected>Выберите предмет</option>
+            <option value="1">Предмет 1</option>
+        </select>
+        <input type="text" placeholder="Список учащихся" oninput="{setStudentsTable(`${value}`)}">
         <div class="journey">
             <table class="students-table">
                 <thead>
                     <tr><th colspan="2"> </th></tr>
                     <tr><th colspan="2" rowspan="2">Учащиеся</th></tr>
                 </thead>
-                <tbody>
+                <tbody id="students-list_table">
                     <tr><td>1.</td><td>Пупупу Пупупупупу</td></tr>
                     <tr><td>2.</td><td>Фамилия 2</td></tr>
                     <tr><td>3.</td><td>Фамилия 3</td></tr>
@@ -213,4 +218,6 @@
         </div>
     </div>
 </body>
+<script src="../scripts/data.js"></script>
+<script src="../scripts/journal.js"></script>
 </html>

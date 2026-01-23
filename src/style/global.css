@@ -154,6 +154,22 @@ table {
     column-gap: 25px;
 }
 
+.section.double .column {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.section.double .column input {
+    background: var(--background);
+    border-radius: var(--border-radius);
+    border: 1px solid #ececec;
+    padding: 5px 10px;
+    width: 125px;
+    text-align: right;
+}
+
 .section h2 {
     font-size: 16px;
     font-weight: 600;

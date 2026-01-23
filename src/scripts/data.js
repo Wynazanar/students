@@ -1,60 +1,60 @@
 const groups = [
-    {id: 1, group: "9ИС-120"},
-    {id: 2, group: "11КС-250"},
-    {id: 3, group: "9ИС-430"},
+    { id: 1, group: "9ИС-120" },
+    { id: 2, group: "11КС-250" },
+    { id: 3, group: "9ИС-430" },
 ];
 
 const students = [
-    {"id": 1, "group_id": 1, "student": "Иванов Иван"},
-    {"id": 2, "group_id": 1, "student": "Максимов Максим"},
-    {"id": 3, "group_id": 1, "student": "Андреев Андрей"},
-    {"id": 4, "group_id": 2, "student": "Миронова Мария"},
-    {"id": 5, "group_id": 2, "student": "Алексеев Алексей"},
-    {"id": 6, "group_id": 3, "student": "Никитин Никита"},
-    {"id": 7, "group_id": 3, "student": "Иванов Иван"},
-    {"id": 8, "group_id": 3, "student": "Петров Петр"},
-    {"id": 9, "group_id": 3, "student": "Сидоров Сидор"},
-    {"id": 10, "group_id": 3, "student": "Семенов Семен"},
-    {"id": 11, "group_id": 3, "student": "Васильев Василий"},
-    {"id": 12, "group_id": 3, "student": "Александров Александр"},
-    {"id": 13, "group_id": 3, "student": "Николаев Николай"},
-    {"id": 14, "group_id": 3, "student": "Павлов Павел"},
-    {"id": 15, "group_id": 3, "student": "Сергеев Сергей"},
-    {"id": 16, "group_id": 3, "student": "Андреев Андрей"},
-    {"id": 17, "group_id": 3, "student": "Дмитриев Дмитрий"},
-    {"id": 18, "group_id": 3, "student": "Егоров Егор"},
-    {"id": 19, "group_id": 3, "student": "Борисов Борис"},
-    {"id": 20, "group_id": 3, "student": "Волков Волк"},
-    {"id": 21, "group_id": 3, "student": "Зайцев Зайц"},
-    {"id": 22, "group_id": 3, "student": "Козлов Козел"},
-    {"id": 23, "group_id": 3, "student": "Левин Лев"},
-    {"id": 24, "group_id": 3, "student": "Константинов Константин"},
-    {"id": 25, "group_id": 3, "student": "Орлов Орлов"},
-    {"id": 26, "group_id": 3, "student": "Романов Роман"},
-    {"id": 27, "group_id": 3, "student": "Королев Королев"},
-    {"id": 28, "group_id": 3, "student": "Носов Нос"},
-    {"id": 29, "group_id": 3, "student": "Горбачев Горбач"},
-    {"id": 30, "group_id": 3, "student": "Чернышов Черныш"},
-]; 
+    { "id": 1, "group_id": 1, "student": "Иванов Иван" },
+    { "id": 2, "group_id": 1, "student": "Максимов Максим" },
+    { "id": 3, "group_id": 1, "student": "Андреев Андрей" },
+    { "id": 4, "group_id": 2, "student": "Миронова Мария" },
+    { "id": 5, "group_id": 2, "student": "Алексеев Алексей" },
+    { "id": 6, "group_id": 3, "student": "Никитин Никита" },
+    { "id": 7, "group_id": 3, "student": "Иванов Иван" },
+    { "id": 8, "group_id": 3, "student": "Петров Петр" },
+    { "id": 9, "group_id": 3, "student": "Сидоров Сидор" },
+    { "id": 10, "group_id": 3, "student": "Семенов Семен" },
+    { "id": 11, "group_id": 3, "student": "Васильев Василий" },
+    { "id": 12, "group_id": 3, "student": "Александров Александр" },
+    { "id": 13, "group_id": 3, "student": "Николаев Николай" },
+    { "id": 14, "group_id": 3, "student": "Павлов Павел" },
+    { "id": 15, "group_id": 3, "student": "Сергеев Сергей" },
+    { "id": 16, "group_id": 3, "student": "Андреев Андрей" },
+    { "id": 17, "group_id": 3, "student": "Дмитриев Дмитрий" },
+    { "id": 18, "group_id": 3, "student": "Егоров Егор" },
+    { "id": 19, "group_id": 3, "student": "Борисов Борис" },
+    { "id": 20, "group_id": 3, "student": "Волков Волк" },
+    { "id": 21, "group_id": 3, "student": "Зайцев Зайц" },
+    { "id": 22, "group_id": 3, "student": "Козлов Козел" },
+    { "id": 23, "group_id": 3, "student": "Левин Лев" },
+    { "id": 24, "group_id": 3, "student": "Константинов Константин" },
+    { "id": 25, "group_id": 3, "student": "Орлов Орлов" },
+    { "id": 26, "group_id": 3, "student": "Романов Роман" },
+    { "id": 27, "group_id": 3, "student": "Королев Королев" },
+    { "id": 28, "group_id": 3, "student": "Носов Нос" },
+    { "id": 29, "group_id": 3, "student": "Горбачев Горбач" },
+    { "id": 30, "group_id": 3, "student": "Чернышов Черныш" },
+];
 
 const subjects = [
-    {id: 1, subject: "ТРПО", teacher_id: 1},
-    {id: 2, subject: "ИСРПО", teacher_id: 2},
-    {id: 3, subject: "Мат. моделирование", teacher_id: 1},
+    { id: 1, subject: "ТРПО", teacher_id: 1 },
+    { id: 2, subject: "ИСРПО", teacher_id: 2 },
+    { id: 3, subject: "Мат. моделирование", teacher_id: 1 },
 ];
 
 const teachers = [
-    {id: 1, teacher: "Преподаватель 1"},
-    {id: 2, teacher: "Преподаватель 2"},
+    { id: 1, teacher: "Преподаватель 1" },
+    { id: 2, teacher: "Преподаватель 2" },
 ];
 
 const sub_stud = [
-    {id: 1, group_id: 1, subject_id: 1},
-    {id: 2, group_id: 1, subject_id: 3},
-    {id: 3, group_id: 2, subject_id: 3},
-    {id: 4, group_id: 3, subject_id: 3},
-    {id: 5, group_id: 3, subject_id: 1},
-    {id: 5, group_id: 2, subject_id: 2},
+    { id: 1, group_id: 1, subject_id: 1 },
+    { id: 2, group_id: 1, subject_id: 3 },
+    { id: 3, group_id: 2, subject_id: 3 },
+    { id: 4, group_id: 3, subject_id: 3 },
+    { id: 5, group_id: 3, subject_id: 1 },
+    { id: 5, group_id: 2, subject_id: 2 },
 ];
 
 const grades = [
@@ -63,21 +63,27 @@ const grades = [
         sub_stud_id: 1,
         teacher_id: 1,
         grades: [
-            {date: "2026-01-21",
+            {
+                date: "2026-01-21",
                 students_grades: [
-                    {student_id: 1, grade: "5"},
-                    {student_id: 2, grade: "4"},
-                    {student_id: 3, grade: "2"},]},
-            {date: "2026-01-22",
+                    { student_id: 1, grade: "5" },
+                    { student_id: 2, grade: "4" },
+                    { student_id: 3, grade: "2" },]
+            },
+            {
+                date: "2026-01-22",
                 students_grades: [
-                    {student_id: 1, grade: ""},
-                    {student_id: 2, grade: "5"},
-                    {student_id: 3, grade: "4"},]},
-            {date: "2026-01-23",
+                    { student_id: 1, grade: "" },
+                    { student_id: 2, grade: "5" },
+                    { student_id: 3, grade: "4" },]
+            },
+            {
+                date: "2026-01-23",
                 students_grades: [
-                    {student_id: 1, grade: "3"},
-                    {student_id: 2, grade: ""},
-                    {student_id: 3, grade: ""},]},
+                    { student_id: 1, grade: "3" },
+                    { student_id: 2, grade: "" },
+                    { student_id: 3, grade: "" },]
+            },
         ]
     }
 ];
@@ -102,7 +108,7 @@ const grades = [
 
 // sub_select.addEventListener("change", () => {
 //     group_select.innerHTML = `<option value="-" selected disabled>Выберите группу</option>`;
-    
+
 //     console.log(sub_select.value);
 //     const sub = sub_stud.filter(ss => ss.subject_id == sub_select.value);
 //     for (let s of sub) {
@@ -165,68 +171,63 @@ function openLessonSettings(lesson, group) {
 
 
 function setGroupsList(filter) {
-    if (filter != null) {
-        let group_list = document.querySelector("#groups-list");
-        group_list.innerHTML = "";
-        const teacher = localStorage.getItem("teacher");
-        const subject = subjects.filter(s => s.teacher_id == teacher);
-        let _subs = [];
-    
-        for (let s of subject) {
-            const _s = sub_stud.filter(st => st.subject_id == s.id);
-            for (let gr of _s) {
-                if (!_subs.includes(gr.group_id)) {
-                    _subs.push(gr.group_id);
-                }
+    let group_list = document.querySelector("#groups-list");
+    group_list.innerHTML = "";
+    const teacher = localStorage.getItem("teacher");
+    const subject = subjects.filter(s => s.teacher_id == teacher);
+    let _subs = [];
+
+    for (let s of subject) {
+        const _s = sub_stud.filter(st => st.subject_id == s.id);
+        for (let gr of _s) {
+            if (!_subs.includes(gr.group_id)) {
+                _subs.push(gr.group_id);
             }
         }
+    }
 
-        for (let group of _subs) {
-            let btn = document.createElement("button");
-            const _group = groups.find(g => g.id == group);
-            let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
-            if (filteredGroup) {
-                btn.textContent = _group.group;
-                btn.addEventListener("click", () => {
-                    console.log(_group);
-                });
-                group_list.appendChild(btn);
-            }
+    for (let group of _subs) {
+        let btn = document.createElement("button");
+        const _group = groups.find(g => g.id == group);
+        let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
+        if (filteredGroup) {
+            btn.textContent = _group.group;
+            btn.addEventListener("click", () => {
+                window.location.href = `?${_group.id}`;
+            });
+            group_list.appendChild(btn);
         }
     }
 }
 
 function setJournalsList(filter) {
-    if (filter != null) {
-        let journal_list = document.querySelector("#journal-list");
-        journal_list.innerHTML = "";
-        const teacher = localStorage.getItem("teacher");
-        const subject = subjects.filter(s => s.teacher_id == teacher);
-        let _subs = [];
+    let journal_list = document.querySelector("#journal-list");
+    journal_list.innerHTML = "";
+    const teacher = localStorage.getItem("teacher");
+    const subject = subjects.filter(s => s.teacher_id == teacher);
+    let _subs = [];
 
-        for (let s of subject) {
-            const _s = sub_stud.filter(st => st.subject_id == s.id);
-            for (let gr of _s) {
-                _subs.push(gr);
-            }
+    for (let s of subject) {
+        const _s = sub_stud.filter(st => st.subject_id == s.id);
+        for (let gr of _s) {
+            _subs.push(gr);
         }
+    }
 
-        for (let group of _subs) {
-            let btn = document.createElement("button");
+    for (let group of _subs) {
+        let btn = document.createElement("button");
 
-            const _subject = subjects.find(s => s.id == group.subject_id);
-            const _group = groups.find(g => g.id == group.group_id);
-            
-            let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
-            let filteredSubject = _subject.subject.trim().toLowerCase().includes(filter.trim().toLowerCase());
-            if (filteredGroup || filteredSubject) {
-                btn.textContent = `🕮 ${_subject.subject} ${_group.group}`;
-                btn.addEventListener("click", () => {
-                    console.log(_subject);
-                    console.log(_group);
-                });
-                journal_list.appendChild(btn);
-            }
+        const _subject = subjects.find(s => s.id == group.subject_id);
+        const _group = groups.find(g => g.id == group.group_id);
+
+        let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
+        let filteredSubject = _subject.subject.trim().toLowerCase().includes(filter.trim().toLowerCase());
+        if (filteredGroup || filteredSubject) {
+            btn.textContent = `🕮 ${_subject.subject} ${_group.group}`;
+            btn.addEventListener("click", () => {
+                window.location.href = `/src/pages/?group_id=${_group.id}`;
+            });
+            journal_list.appendChild(btn);
         }
     }
 }
