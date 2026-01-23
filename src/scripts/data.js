@@ -181,7 +181,11 @@ function setGroupsList() {
 
     for (let group of _subs) {
         let btn = document.createElement("button");
-        btn.textContent = groups.find(g => g.id == group).group;
+        const _group = groups.find(g => g.id == group);
+        btn.textContent = _group.group;
+        btn.addEventListener("click", () => {
+            console.log(_group);
+        });
         group_list.appendChild(btn);
     }
 }
@@ -193,26 +197,22 @@ function setJournalsList() {
     let _subs = [];
 
     for (let s of subject) {
-        console.log(s);
         const _s = sub_stud.filter(st => st.subject_id == s.id);
-        console.log(_s);
         for (let gr of _s) {
-            console.log(gr);
             _subs.push(gr);
         }
     }
 
-    console.log(_subs);
-
     for (let group of _subs) {
         let btn = document.createElement("button");
 
-        const _subject = subjects.find(s => s.id == group.subject_id).subject;
-        const _group = groups.find(g => g.id == group.group_id).group;
+        const _subject = subjects.find(s => s.id == group.subject_id);
+        const _group = groups.find(g => g.id == group.group_id);
 
-        btn.textContent = `🕮 ${_subject} ${_group}`;
+        btn.textContent = `🕮 ${_subject.subject} ${_group.group}`;
         btn.addEventListener("click", () => {
-            console.log(`${_subject} ${_group}`);
+            console.log(_subject);
+            console.log(_group);
         });
         journal_list.appendChild(btn);
     }
