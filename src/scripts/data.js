@@ -44,8 +44,8 @@ const subjects = [
 ];
 
 const teachers = [
-    {id: 1, teacher: "Балаева Елизавета"},
-    {id: 2, teacher: "Гузова Маргарита"},
+    {id: 1, teacher: "Преподаватель 1"},
+    {id: 2, teacher: "Преподаватель 2"},
 ];
 
 const sub_stud = [
@@ -54,6 +54,7 @@ const sub_stud = [
     {id: 3, group_id: 2, subject_id: 3},
     {id: 4, group_id: 3, subject_id: 3},
     {id: 5, group_id: 3, subject_id: 1},
+    {id: 5, group_id: 2, subject_id: 2},
 ];
 
 const grades = [
@@ -82,50 +83,50 @@ const grades = [
 ];
 
 
-let sub_select = document.querySelector("#subject");
-let group_select = document.querySelector("#group");
+// let sub_select = document.querySelector("#subject");
+// let group_select = document.querySelector("#group");
 
-sub_select.innerHTML = `<option value="-" selected disabled>Выберите предмет</option>`;
-group_select.innerHTML = `<option value="-" selected disabled>Выберите группу</option>`;
+// sub_select.innerHTML = `<option value="-" selected disabled>Выберите предмет</option>`;
+// group_select.innerHTML = `<option value="-" selected disabled>Выберите группу</option>`;
 
-const teacher = localStorage.getItem("teacher");
-const teacher_sub = subjects.filter(s => s.teacher_id == teacher);
+// const teacher = localStorage.getItem("teacher");
+// const teacher_sub = subjects.filter(s => s.teacher_id == teacher);
 
-for (let ts of teacher_sub) {
-    console.log(ts);
-    let option = document.createElement("option");
-    option.value = ts.id;
-    option.textContent = ts.subject;
-    sub_select.appendChild(option);
-}
+// for (let ts of teacher_sub) {
+//     console.log(ts);
+//     let option = document.createElement("option");
+//     option.value = ts.id;
+//     option.textContent = ts.subject;
+//     sub_select.appendChild(option);
+// }
 
-sub_select.addEventListener("change", () => {
-    group_select.innerHTML = `<option value="-" selected disabled>Выберите группу</option>`;
+// sub_select.addEventListener("change", () => {
+//     group_select.innerHTML = `<option value="-" selected disabled>Выберите группу</option>`;
     
-    console.log(sub_select.value);
-    const sub = sub_stud.filter(ss => ss.subject_id == sub_select.value);
-    for (let s of sub) {
-        let option = document.createElement("option");
-        option.value = s.group_id;
-        option.textContent = groups.find(g => g.id == s.group_id).group;
-        group_select.appendChild(option);
-    }
-});
+//     console.log(sub_select.value);
+//     const sub = sub_stud.filter(ss => ss.subject_id == sub_select.value);
+//     for (let s of sub) {
+//         let option = document.createElement("option");
+//         option.value = s.group_id;
+//         option.textContent = groups.find(g => g.id == s.group_id).group;
+//         group_select.appendChild(option);
+//     }
+// });
 
-group_select.addEventListener("change", () => {
-    const _students = students.filter(st => st.group_id == group_select.value);
-    let table = document.querySelector("#st_tbody");
-    let index = 1;
-    table.innerHTML = "";
-    for (let st of _students) {
-        table.innerHTML += `<tr>
-                                <td>${index}. </td>
-                                <td>${st.student}</td>
-                                <td><input type="text"></td>
-                            </tr>`;
-        index++;
-    }
-});
+// group_select.addEventListener("change", () => {
+//     const _students = students.filter(st => st.group_id == group_select.value);
+//     let table = document.querySelector("#st_tbody");
+//     let index = 1;
+//     table.innerHTML = "";
+//     for (let st of _students) {
+//         table.innerHTML += `<tr>
+//                                 <td>${index}. </td>
+//                                 <td>${st.student}</td>
+//                                 <td><input type="text"></td>
+//                             </tr>`;
+//         index++;
+//     }
+// });
 
 function openLessonSettings(lesson, group) {
     return `<div class="form" id="lessonSettings">
@@ -159,3 +160,31 @@ function openLessonSettings(lesson, group) {
             <button class="button primary" onclick="saveThemeSubject()">Создать/Сохранить</button>
         </div>`;
 }
+
+
+
+
+function setGroupsList() {
+    let group_list = document.querySelector("#groups_list");
+
+    const subject = subjects.filter(s => s.teacher_id == 1);
+    let _subs = [];
+
+    for (let s of subject) {
+        const _s = sub_stud.filter(st => st.subject_id == s.id);
+        for (let gr of _s) {
+            if (!_subs.includes(gr.group_id)) {
+                _subs.push(gr.group_id);
+            }
+
+        }
+    }
+
+    for (let group of _subs) {
+        let btn = document.createElement("button");
+        btn.textContent = group;
+        group_list.appendChild(btn);
+    }
+}
+
+setGroupsList();
