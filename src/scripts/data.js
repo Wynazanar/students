@@ -164,59 +164,72 @@ function openLessonSettings(lesson, group) {
 
 
 
-function setGroupsList() {
-    let group_list = document.querySelector("#groups-list");
+function setGroupsList(filter) {
+    if (filter != null) {
+        let group_list = document.querySelector("#groups-list");
+        group_list.innerHTML = "";
+        const teacher = localStorage.getItem("teacher");
+        const subject = subjects.filter(s => s.teacher_id == teacher);
+        let _subs = [];
+    
+        for (let s of subject) {
+            const _s = sub_stud.filter(st => st.subject_id == s.id);
+            for (let gr of _s) {
+                if (!_subs.includes(gr.group_id)) {
+                    _subs.push(gr.group_id);
+                }
+            }
+        }
 
-    const subject = subjects.filter(s => s.teacher_id == 1);
-    let _subs = [];
-
-    for (let s of subject) {
-        const _s = sub_stud.filter(st => st.subject_id == s.id);
-        for (let gr of _s) {
-            if (!_subs.includes(gr.group_id)) {
-                _subs.push(gr.group_id);
+        for (let group of _subs) {
+            let btn = document.createElement("button");
+            const _group = groups.find(g => g.id == group);
+            let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
+            if (filteredGroup) {
+                btn.textContent = _group.group;
+                btn.addEventListener("click", () => {
+                    console.log(_group);
+                });
+                group_list.appendChild(btn);
             }
         }
     }
-
-    for (let group of _subs) {
-        let btn = document.createElement("button");
-        const _group = groups.find(g => g.id == group);
-        btn.textContent = _group.group;
-        btn.addEventListener("click", () => {
-            console.log(_group);
-        });
-        group_list.appendChild(btn);
-    }
 }
 
-function setJournalsList() {
-    let journal_list = document.querySelector("#journal-list");
+function setJournalsList(filter) {
+    if (filter != null) {
+        let journal_list = document.querySelector("#journal-list");
+        journal_list.innerHTML = "";
+        const teacher = localStorage.getItem("teacher");
+        const subject = subjects.filter(s => s.teacher_id == teacher);
+        let _subs = [];
 
-    const subject = subjects.filter(s => s.teacher_id == 1);
-    let _subs = [];
+        for (let s of subject) {
+            const _s = sub_stud.filter(st => st.subject_id == s.id);
+            for (let gr of _s) {
+                _subs.push(gr);
+            }
+        }
 
-    for (let s of subject) {
-        const _s = sub_stud.filter(st => st.subject_id == s.id);
-        for (let gr of _s) {
-            _subs.push(gr);
+        for (let group of _subs) {
+            let btn = document.createElement("button");
+
+            const _subject = subjects.find(s => s.id == group.subject_id);
+            const _group = groups.find(g => g.id == group.group_id);
+            
+            let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
+            let filteredSubject = _subject.subject.trim().toLowerCase().includes(filter.trim().toLowerCase());
+            if (filteredGroup || filteredSubject) {
+                btn.textContent = `🕮 ${_subject.subject} ${_group.group}`;
+                btn.addEventListener("click", () => {
+                    console.log(_subject);
+                    console.log(_group);
+                });
+                journal_list.appendChild(btn);
+            }
         }
     }
-
-    for (let group of _subs) {
-        let btn = document.createElement("button");
-
-        const _subject = subjects.find(s => s.id == group.subject_id);
-        const _group = groups.find(g => g.id == group.group_id);
-
-        btn.textContent = `🕮 ${_subject.subject} ${_group.group}`;
-        btn.addEventListener("click", () => {
-            console.log(_subject);
-            console.log(_group);
-        });
-        journal_list.appendChild(btn);
-    }
 }
 
-setGroupsList();
-setJournalsList();
+setGroupsList("");
+setJournalsList("");
