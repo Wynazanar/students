@@ -165,7 +165,7 @@ function openLessonSettings(lesson, group) {
 
 
 function setGroupsList() {
-    let group_list = document.querySelector("#groups_list");
+    let group_list = document.querySelector("#groups-list");
 
     const subject = subjects.filter(s => s.teacher_id == 1);
     let _subs = [];
@@ -176,15 +176,47 @@ function setGroupsList() {
             if (!_subs.includes(gr.group_id)) {
                 _subs.push(gr.group_id);
             }
-
         }
     }
 
     for (let group of _subs) {
         let btn = document.createElement("button");
-        btn.textContent = group;
+        btn.textContent = groups.find(g => g.id == group).group;
         group_list.appendChild(btn);
     }
 }
 
+function setJournalsList() {
+    let journal_list = document.querySelector("#journal-list");
+
+    const subject = subjects.filter(s => s.teacher_id == 1);
+    let _subs = [];
+
+    for (let s of subject) {
+        console.log(s);
+        const _s = sub_stud.filter(st => st.subject_id == s.id);
+        console.log(_s);
+        for (let gr of _s) {
+            console.log(gr);
+            _subs.push(gr);
+        }
+    }
+
+    console.log(_subs);
+
+    for (let group of _subs) {
+        let btn = document.createElement("button");
+
+        const _subject = subjects.find(s => s.id == group.subject_id).subject;
+        const _group = groups.find(g => g.id == group.group_id).group;
+
+        btn.textContent = `🕮 ${_subject} ${_group}`;
+        btn.addEventListener("click", () => {
+            console.log(`${_subject} ${_group}`);
+        });
+        journal_list.appendChild(btn);
+    }
+}
+
 setGroupsList();
+setJournalsList();

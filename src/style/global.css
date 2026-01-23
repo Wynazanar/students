@@ -150,7 +150,7 @@ table {
 
 .section.double {
     display: flex;
-    align-items: center;
+    align-items: top;
     column-gap: 25px;
 }
 
