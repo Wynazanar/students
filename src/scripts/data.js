@@ -193,7 +193,7 @@ function setGroupsList(filter) {
         if (filteredGroup) {
             btn.textContent = _group.group;
             btn.addEventListener("click", () => {
-                window.location.href = `?${_group.id}`;
+                window.location.href = `/src/pages/?group_id=${_group.id}`;
             });
             group_list.appendChild(btn);
         }
@@ -225,7 +225,7 @@ function setJournalsList(filter) {
         if (filteredGroup || filteredSubject) {
             btn.textContent = `🕮 ${_subject.subject} ${_group.group}`;
             btn.addEventListener("click", () => {
-                window.location.href = `/src/pages/?group_id=${_group.id}`;
+                window.location.href = `/src/pages/?group_id=${_group.id}&subject_id=${_subject.id}`;
             });
             journal_list.appendChild(btn);
         }

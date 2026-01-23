@@ -1,6 +1,10 @@
-const group_id = window.location.href.split("?group_id=")[1];
+const group_id = window.location.href.split("?group_id=")[1].split("&")[0];
+const sub_id = window.location.href.split("&subject_id=")[1];
 console.log(group_id);
+console.log(sub_id);
+
 setStudentsTable("");
+setAttribute(sub_id);
 
 function setStudentsTable(filter) {
     let table = document.querySelector("#students-list_table");
@@ -23,5 +27,16 @@ function setStudentsTable(filter) {
             tr.appendChild(student_td);
             table.appendChild(tr);
         }
+    }
+}
+
+function setAttribute(id) {
+    let subject_select = document.querySelector("#subject-select_journal");
+    if (id != null) {
+        const _subject = subjects.find(s => s.id == id);
+        console.log(_subject);
+        subject_select.innerHTML = `<option value=${_subject.id} disable selected>${_subject.subject}</option>`;
+    } else {
+        const _subject = subjects.find(s => s.id == id);
     }
 }
