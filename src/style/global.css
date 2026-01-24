@@ -21,6 +21,26 @@ body {
     background: var(--background);
 }
 
+select.select {
+    appearance: none;
+    background: var(--background);
+    border-radius: var(--border-radius);
+    border: 1px solid #ececec;
+    padding: 5px 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .button.primary {
     background: var(--primary);
     color: var(--color);
