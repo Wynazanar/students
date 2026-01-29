@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система учета успеваемости студентов</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-header">
+            <h2>Учебный план</h2>
+            <button class="button primary-small" onclick="openSubStudModal()">+ Создать</button>
+        </div>
+        <div class="table-pagition">
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Предмет</th>
+                        <th>Преподаватель</th>
+                        <th>Группа</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="settings_subject_students"></tbody>
+            </table>
+            <div class="pagition">
+                <button class="pagition-btn" id="pag-btn-prev"><svg height="18px" width="18px" viewBox="0 0 330.00 330.00" xml:space="preserve"stroke-width="0.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.98"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"></path> </g></svg></button>
+                <div class="pagition-btn-numbers"></div>
+                <button class="pagition-btn" id="pag-btn-next"><svg height="18px" width="18px" viewBox="0 0 330.00 330.00" xml:space="preserve" stroke="#000000" stroke-width="0.0033" transform="matrix(-1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.66"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"></path></g></svg></button>
+            </div>
+        </div>
+
+        <div class="modal hide" class="form" id="lessonSettings"></div>
+    </div>
+</body>
+<script src="../scripts/data.js"></script>
+<script src="../scripts/settings.js"></script>
+</html>

@@ -11,6 +11,9 @@
     --color: #FFF; 
     --primary: #5E81F4;
     --primary-hover: #475EAB;
+
+    --pagition-background: #F5F5FA;
+    --pagition-color: #8181A5;
 }
 
 * {
@@ -41,7 +44,7 @@ select.select {
 
 
 
-.button.primary {
+.button.primary, .button.primary-small {
     background: var(--primary);
     color: var(--color);
     font-weight: bold;
@@ -50,7 +53,12 @@ select.select {
     transition: all 0.2s ease-in-out;
 }
 
-.button.primary:hover {
+.button.primary-small {
+    padding: 10px 16px;
+}
+
+.button.primary:hover,
+.button.primary-small:hover {
     background: var(--primary-hover);
 }
 
@@ -58,6 +66,18 @@ select.select {
     max-width: 1441px;
     width: 100%;
     margin: 0px auto;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 10px 20px;
+}
+
+.container-header h2 {
+    font-weight: 700;
+    font-size: 19px;
 }
 
 .journey {
@@ -235,4 +255,80 @@ table {
     border-radius: var(--border-radius);
     transition: all 0.2s ease-in-out;
     text-align: left;
+}
+
+
+
+
+
+.table-pagition {
+    padding: 22px 28px;
+    border-radius: var(--border-radius);
+    background: var(--table-background);
+}
+
+.pagition {
+    margin: 0px auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagition-btn {
+    aspect-ratio: 1;
+    width: 40px;
+    border-radius: 6px;
+    background: var(--pagition-background);
+    font-weight: 500;
+}
+
+.pagition-btn svg {
+    fill: var(--pagition-color);
+}
+
+.pagition-btn-numbers button {
+    aspect-ratio: 1;
+    width: 32px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.pagition-btn-numbers button.select {
+    background: var(--primary);
+    color: var(--color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--table-background);
+    border-radius: var(--border-radius);
+    padding: 22px 28px;
+}
+
+.modal.hide {
+    display: none;
+}
+
+#lessonSettings {
+    max-width: 500px;
 }

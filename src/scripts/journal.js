@@ -16,15 +16,21 @@ const _MONTH = {
     "12": "Декабрь",
 }
 
-setStudentsTable("");
-setJournalsTable();
+renderTable();
 setAttribute(sub_id);
 
-function setStudentsTable(filter) {
+function renderTable(filter="") {
+    setStudentsTable(filter);
+    setJournalsTable(filter);
+}
+
+function setStudentsTable(filter="") {
     let table = document.querySelector("#students-list_table");
     table.innerHTML = "";
 
-    const _students = students.filter(s => s.group_id == group_id);
+    const _students = students
+        .filter(s => s.group_id == group_id)
+        .sort((a, b) => a.student.trim().localeCompare(b.student.trim(), "ru", { sensitivity: "base" }));
     let index = 1;
     for (let _s of _students) {
         let filteredStudent = _s.student.trim().toLowerCase().includes(filter.trim().toLowerCase());
@@ -44,10 +50,14 @@ function setStudentsTable(filter) {
     }
 }
 
-function setJournalsTable() {
+function setJournalsTable(filter="") {
     const _stud_sub = sub_stud.find(ss => ss.group_id == group_id && ss.subject_id == sub_id);
+    if (!_stud_sub) return;
+
     const _grade = grades.find(g => g.sub_stud_id == _stud_sub.id);
-    const _grades = _grade.grades;
+    if (!_grade) return;
+
+    const _grades = Array.isArray(_grade.grades) ? _grade.grades : [];
 
     const month_tr = document.querySelector("#month-tr");
     month_tr.innerHTML = "";
@@ -60,9 +70,7 @@ function setJournalsTable() {
 
     let allMonth = [];
     let uniqueMonth = [];
-
     let allDays = [];
-
     let allGrades = [];
 
     for (let _g of _grades) {
@@ -91,11 +99,26 @@ function setJournalsTable() {
         days_tr.appendChild(th);
     }
 
-    let rows = allGrades[0].length;
-    console.log(allGrades[0].length);
+    const gradesByStudentId = new Map();
+    for (let lessonGrades of allGrades) {
+        for (let sg of lessonGrades) {
+            if (!gradesByStudentId.has(sg.student_id)) gradesByStudentId.set(sg.student_id, []);
+            gradesByStudentId.get(sg.student_id).push(sg.grade);
+        }
+    }
 
-    for (let i = 0; i < rows; i++) {
+    const filteredStudents = students
+        .filter(s => s.group_id == group_id && s.student.trim().toLowerCase().includes(filter.trim().toLowerCase()))
+        .sort((a, b) => a.student.trim().localeCompare(b.student.trim(), "ru", { sensitivity: "base" }));
+
+    for (let st of filteredStudents) {
         const tr = document.createElement("tr");
+        const stGrades = gradesByStudentId.get(st.id) || [];
+        for (let i = 0; i < allDays.length; i++) {
+            const td = document.createElement("td");
+            td.textContent = stGrades[i] ?? "";
+            tr.appendChild(td);
+        }
         grades_table.appendChild(tr);
     }
 }
@@ -121,8 +144,3 @@ function setAttribute(id) {
         }
     }
 }
-
-// const ttt = teachers.find(t => t.id == 1);
-// console.log(ttt);
-// const sss = subjects.filter(s => s.teacher_id == ttt.id);
-// console.log(sss);
