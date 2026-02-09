@@ -1,33 +1,52 @@
+const _teachers = getLocalStorage("teachers");
+const columns = [
+    {
+        key: "id",
+        name: "ID",
+        value: "id"
+    },
+    {
+        key: "teacher",
+        name: "Преподаватель",
+        value: "teacher"
+    },
+    {
+        key: "actions",
+        name: "Действия",
+        value: `<button>Удалить</button>`
+    },
+];
+
 renderSubStudTable();
+
 
 function renderSubStudTable(pageNumber = 1) {
     const table = document.querySelector("#settings_subject_students");
-    table.innerHTML = "";
+    table.innerHTML = Table(columns, _teachers);
 
-    const data = getLocalStorage("sub_stud");
-    const _groups = getLocalStorage("groups");
-    const _subjects = getLocalStorage("subjects");
-    const _teachers = getLocalStorage("teachers");
+    // const data = getLocalStorage("sub_stud");
+    // const _groups = getLocalStorage("groups");
+    // const _subjects = getLocalStorage("subjects");
 
-    const table_cells = 9;
-    const totalPage = Math.ceil(data.length / table_cells);
-    const startIndex = (pageNumber - 1) * table_cells;
-    const endIndex = startIndex + table_cells;
+    // const table_cells = 3;
+    // const totalPage = Math.ceil(data.length / table_cells);
+    // const startIndex = (pageNumber - 1) * table_cells;
+    // const endIndex = startIndex + table_cells;
 
-    for (let i = startIndex; i < endIndex && i < data.length; i++) {
-        const rowData = data[i];
-        table.innerHTML +=
-            `<tr>
-                <td style="text-align: center;">${rowData.id}</td>
-                <td>${_subjects.find(s => s.id == rowData.subject_id).subject}</td>
-                <td>${_teachers.find(t => t.id == _subjects.find(s => s.id == rowData.subject_id).teacher_id).teacher}</td>
-                <td style="text-align: center;">${_groups.find(g => g.id == rowData.group_id).group}</td>
-                <td style="text-align: right;"><button onclick="openSubStudModal('${rowData.id}')">Изменить</button></td>
-            </tr>`;
+    // for (let i = startIndex; i < endIndex && i < data.length; i++) {
+    //     const rowData = data[i];
+    //     table.innerHTML +=
+    //         `<tr>
+    //             <td style="text-align: center;">${rowData.id}</td>
+    //             <td>${_subjects.find(s => s.id == rowData.subject_id).subject}</td>
+    //             <td>${_teachers.find(t => t.id == _subjects.find(s => s.id == rowData.subject_id).teacher_id).teacher}</td>
+    //             <td style="text-align: center;">${_groups.find(g => g.id == rowData.group_id).group}</td>
+    //             <td style="text-align: right;"><button onclick="openSubStudModal('${rowData.id}')">Изменить</button></td>
+    //         </tr>`;
 
-    }
+    // }
 
-    renderPagination(totalPage, pageNumber);
+    // renderPagination(totalPage, pageNumber);
 }
 
 function renderPagination(totalPages, currentPage) {
