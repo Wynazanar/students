@@ -1,4 +1,4 @@
-const groups = [
+const _GROUPS = [
   { "id": 1, "group": "9КС-141" },
   { "id": 2, "group": "9КС-142" },
   { "id": 3, "group": "11ИС-143" },
@@ -70,7 +70,7 @@ const groups = [
   { "id": 69, "group": "9СА-511З" }
 ];
 
-const students = [
+const _STUDENTS = [
   {"id": 1, "group_id": 1, "student": "Иванов Иван"},
   {"id": 2, "group_id": 1, "student": "Петров Пётр"},
   {"id": 3, "group_id": 1, "student": "Сидоров Сергей"},
@@ -173,7 +173,7 @@ const students = [
   {"id": 100, "group_id": 10, "student": "Свиридов Антон"}
 ];
 
-const subjects = [
+const _SUBJECTS = [
   { id: 1, subject: "Экономика отрасли"},
   { id: 2, subject: "Экономика организации"},
   { id: 3, subject: "Основы экономики"},
@@ -226,7 +226,7 @@ const subjects = [
   { id: 41, subject: "Иностранный язык в проф. деят."},
 ];
 
-const teachers = [
+const _TEACHERS = [
   { id: 1, teacher: "Иванов Иван Иванович" },
   { id: 2, teacher: "Петрова Анна Сергеевна" },
   { id: 3, teacher: "Смирнов Алексей Дмитриевич" },
@@ -239,7 +239,7 @@ const teachers = [
   { id: 10, teacher: "Орлов Дмитрий Сергеевич" }
 ];
 
-const sub_stud = [
+const _SUB_STUD = [
     {"id": 1, "subject_id": 11, "group_id": 1},
     {"id": 2, "subject_id": 15, "group_id": 1},
     {"id": 5, "subject_id": 19, "group_id": 1},
@@ -250,7 +250,7 @@ const sub_stud = [
     {"id": 10, "subject_id": 39, "group_id": 1}
 ];
 
-const grades = [
+const _GRADES = [
   {
     "id": 1,
     "sub_stud_id": 4,
@@ -1525,165 +1525,13 @@ function getLocalStorage(storage) {
   return data;
 }
 
-function saveLocalStorage(storage, json) {
-  const data = getLocalStorage(storage);
-  data.push(json);
-  setLocalStorage(storage, data);
-}
-
 function loadStorage() {
-  localStorage.setItem("groups", JSON.stringify(groups));
-  localStorage.setItem("subjects", JSON.stringify(subjects));
-  localStorage.setItem("teachers", JSON.stringify(teachers));
-  localStorage.setItem("sub_stud", JSON.stringify(sub_stud));
+  localStorage.setItem("groups", JSON.stringify(_GROUPS));
+  localStorage.setItem("students", JSON.stringify(_STUDENTS));
+  localStorage.setItem("subjects", JSON.stringify(_SUBJECTS));
+  localStorage.setItem("teachers", JSON.stringify(_TEACHERS));
+  localStorage.setItem("sub_stud", JSON.stringify(_SUB_STUD));
+  localStorage.setItem("grades", JSON.stringify(_GRADES));
 }
 
 // loadStorage();
-
-// loadStorage();
-
-// let sub_select = document.querySelector("#subject");
-// let group_select = document.querySelector("#group");
-
-// sub_select.innerHTML = `<option value="-" selected disabled>Выберите предмет</option>`;
-// group_select.innerHTML = `<option value="-" selected disabled>Выберите группу</option>`;
-
-// const teacher = localStorage.getItem("teacher");
-// const teacher_sub = subjects.filter(s => s.teacher_id == teacher);
-
-// for (let ts of teacher_sub) {
-//     console.log(ts);
-//     let option = document.createElement("option");
-//     option.value = ts.id;
-//     option.textContent = ts.subject;
-//     sub_select.appendChild(option);
-// }
-
-// sub_select.addEventListener("change", () => {
-//     group_select.innerHTML = `<option value="-" selected disabled>Выберите группу</option>`;
-
-//     console.log(sub_select.value);
-//     const sub = sub_stud.filter(ss => ss.subject_id == sub_select.value);
-//     for (let s of sub) {
-//         let option = document.createElement("option");
-//         option.value = s.group_id;
-//         option.textContent = groups.find(g => g.id == s.group_id).group;
-//         group_select.appendChild(option);
-//     }
-// });
-
-// group_select.addEventListener("change", () => {
-//     const _students = students.filter(st => st.group_id == group_select.value);
-//     let table = document.querySelector("#st_tbody");
-//     let index = 1;
-//     table.innerHTML = "";
-//     for (let st of _students) {
-//         table.innerHTML += `<tr>
-//                                 <td>${index}. </td>
-//                                 <td>${st.student}</td>
-//                                 <td><input type="text"></td>
-//                             </tr>`;
-//         index++;
-//     }
-// });
-
-function openLessonSettings(lesson, group) {
-    return `<div class="form" id="lessonSettings">
-            <div class="form-header">
-                <h2>Редактирование урока</h2>
-                <svg width="19px" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </div>
-            <p class="form-description">Вы можете создавать новые занятия, а также редактировать существующие</p>
-            <div class="form-section">
-                <label for="date">Дата занятия</label>
-                <input type="date" onchange="{console.log(this.value)}" id="date">
-                <br>
-                <select class="form-section-select" id="subject"></select>
-            </div>
-            <div class="form-section">
-                <h3>Успеваемость учащихся</h3>
-                <select class="form-section-select" id="group"></select>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Учащиеся</th>
-                            <th>Оценивание</th>
-                        </tr>
-                    </thead>
-                    <tbody id="st_tbody"></tbody>
-                </table>
-            </div>
-            <button class="button primary" onclick="saveThemeSubject()">Создать/Сохранить</button>
-        </div>`;
-}
-
-
-
-
-function setGroupsList(filter) {
-    let group_list = document.querySelector("#groups-list");
-    group_list.innerHTML = "";
-    const teacher = localStorage.getItem("teacher");
-    const subject = subjects.filter(s => s.teacher_id == teacher);
-    let _subs = [];
-
-    for (let s of subject) {
-        const _s = sub_stud.filter(st => st.subject_id == s.id);
-        for (let gr of _s) {
-            if (!_subs.includes(gr.group_id)) {
-                _subs.push(gr.group_id);
-            }
-        }
-    }
-
-    for (let group of _subs) {
-        let btn = document.createElement("button");
-        const _group = groups.find(g => g.id == group);
-        let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
-        if (filteredGroup) {
-            btn.textContent = _group.group;
-            btn.addEventListener("click", () => {
-                window.location.href = `/src/pages/?group_id=${_group.id}`;
-            });
-            group_list.appendChild(btn);
-        }
-    }
-}
-
-function setJournalsList(filter) {
-    let journal_list = document.querySelector("#journal-list");
-    journal_list.innerHTML = "";
-    const teacher = localStorage.getItem("teacher");
-    const subject = subjects.filter(s => s.teacher_id == teacher);
-    let _subs = [];
-
-    for (let s of subject) {
-        const _s = sub_stud.filter(st => st.subject_id == s.id);
-        for (let gr of _s) {
-            _subs.push(gr);
-        }
-    }
-
-    for (let group of _subs) {
-        let btn = document.createElement("button");
-
-        const _subject = subjects.find(s => s.id == group.subject_id);
-        const _group = groups.find(g => g.id == group.group_id);
-
-        let filteredGroup = _group.group.trim().toLowerCase().includes(filter.trim().toLowerCase());
-        let filteredSubject = _subject.subject.trim().toLowerCase().includes(filter.trim().toLowerCase());
-        if (filteredGroup || filteredSubject) {
-            btn.textContent = `🕮 ${_subject.subject} ${_group.group}`;
-            btn.addEventListener("click", () => {
-                window.location.href = `/src/pages/?group_id=${_group.id}&subject_id=${_subject.id}`;
-            });
-            journal_list.appendChild(btn);
-        }
-    }
-}
-
-setGroupsList("");
-setJournalsList("");

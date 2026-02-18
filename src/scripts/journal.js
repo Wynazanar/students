@@ -1,6 +1,13 @@
 const group_id = window.location.href.split("?group_id=")[1].split("&")[0];
 const sub_id = window.location.href.split("&subject_id=")[1];
 
+const groups = getLocalStorage("groups");
+const students = getLocalStorage("students");
+const sub_stud = getLocalStorage("sub_stud");
+const grades = getLocalStorage("grades");
+const subjects = getLocalStorage("subjects");
+
+
 const _MONTH = {
     "01": "Январь",
     "02": "Февраль",
@@ -52,11 +59,12 @@ function setStudentsTable(filter="") {
 
 function setJournalsTable(filter="") {
     const _stud_sub = sub_stud.find(ss => ss.group_id == group_id && ss.subject_id == sub_id);
-    if (!_stud_sub) return;
+
+    console.log(_stud_sub);
+    console.log(grades);
 
     const _grade = grades.find(g => g.sub_stud_id == _stud_sub.id);
-    if (!_grade) return;
-
+    console.log(_grade);
     const _grades = Array.isArray(_grade.grades) ? _grade.grades : [];
 
     const month_tr = document.querySelector("#month-tr");
@@ -67,6 +75,7 @@ function setJournalsTable(filter="") {
 
     const grades_table = document.querySelector("#grades-table");
     grades_table.innerHTML = "";
+
 
     let allMonth = [];
     let uniqueMonth = [];
